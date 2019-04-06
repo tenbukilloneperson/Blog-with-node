@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Clean Blog</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Theme CSS -->
+  <link href="../assets/css/clean-blog.css" rel="stylesheet">
+  <!-- Custom Fonts -->
+  <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>Menu <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="post.html">Sample Post</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/logout" id="logout">logout</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+  <!-- Page Header -->
+  <!-- Set your background image for this header on the line below. -->
+  <header class="intro-header" style="background-image: url('../assets/img/home-bg.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <hr class="small">
+            <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <span id="s"></span>
+        <!--<div class="post-preview">-->
+          <!--<a href="post.html">-->
+            <!--<h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>-->
+            <!--<h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>-->
+          <!--</a>-->
+          <!--<p class="post-meta">-->
+            <!--Posted by <a href="#">Start Bootstrap</a> on September 24, 2014-->
+            <!--<span class="pull-right"><a href="#" class="">编辑</a> <a href="#">删除</a></span>-->
+          <!--</p>-->
+        <!--</div>-->
+        <!--<hr>-->
+
+        <!-- Pager -->
+        <ul class="pager">
+          <li class="previous"><a href="javascript:;"><span aria-hidden="true">&larr;</span> Newer</a></li>
+          <li class="next"><a href="javascript:;">Older <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <ul class="list-inline text-center">
+            <li>
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- jQuery -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Contact Form JavaScript -->
+  <script src="../assets/js/jqBootstrapValidation.js"></script>
+  <script src="../assets/js/contact_me.js"></script>
+  <!-- Theme JavaScript -->
+  <script src="../assets/js/clean-blog.js"></script>
+  <script src="../../node_modules/art-template/lib/template-web.js"></script>
+</body>
+
+<!--定义模板-->
+<script type="text/template" id="index">
+  {{each list value}}
+  <div class="post-preview">
+  <a href="post.html">
+  <h2 class="post-title">{{value.article_title}}</h2>
+  </a>
+  <p class="post-meta">
+  Posted by <a href="#">{{value.user_nickname}}</a> {{value.article_addtime}}
+  <span class="pull-right"><a href="/edit?id={{value.article_id}}" class="edit">编辑</a> <a href="javascript:;" class="del" data-id ="{{value.article_id}}">删除</a></span>
+  </p>
+  </div>
+  <hr>
+ {{/each}}
+</script>
+<script>
+  // 分页效果的制作
+  let page = 1;
+  let pageSize = 2;
+
+  function render(page,callback) {
+      $.ajax({
+          type : 'GET',
+          url : '/getIndex',
+          data : {page : page, pageSize : 2},
+          success : function (datas) {
+              console.log(datas);
+              if(datas.length < 1) {
+                  alert('已经是最后一页了');
+                  page--;
+              } else {
+                  $('#s').html(template('index',{list : datas}));
+              }
+          }
+      })
+  };
+
+  // 1. 页面初始化  加载第一页数据,渲染页面
+  render(page);
+
+  // 2. 下一页
+  $('.next').on('click',function () {
+      page++;
+      render(page);
+  })
+
+  // 3.上一页
+  $('.previous').on('click',function () {
+      page--;
+      if(page < 1) {
+          alert('已经是首页了');
+          page++;
+      }
+      render(page);
+  });
+
+  // 点击删除按钮删除对应的文章
+  $('#s').on('click','.del',function () {
+      // 发送ajax请求
+      const id = $(this).data('id');
+      $.ajax({
+          type : 'GET',
+          url : '/delArticle',
+          data : {id : id},
+          dataType : 'json',
+          success : function (datas) {
+              console.log(datas);
+              alert(datas.message);
+              if(datas.code === 200) {
+                  location.reload();
+              }
+          }
+      })
+  });
+
+  // 点击编辑按钮,编辑对应的文章
+  // $('#s').on('click','.edit',function () {
+  //     // 点击编辑,发送ajax请
+  // });
+</script>
+</html>
